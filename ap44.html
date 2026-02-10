@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Students</title>
+</head>
+<body>
+
+<!-- 
+Question 4:
+Create an array of students. User should be prompted for student details like in task 1.
+After entering details of one student, confirm if user wants to enter more students.
+Accomplish this using a function.
+-->
+
+<h2>Students List</h2>
+<div id="students"></div>
+
+<script>
+    let students = [];
+
+    function addStudent(){
+        let student = {
+            name: prompt("Enter Student Name:"),
+            roll: prompt("Enter Roll Number:"),
+            department: prompt("Enter Department:"),
+            project: prompt("Enter Project Title:")
+        };
+
+        students.push(student);
+
+        if(confirm("Do you want to add another student?")){
+            addStudent();
+        }
+    }
+
+    addStudent();
+
+    let output = "";
+    students.forEach((s, index) => {
+        output += `
+            <h3>Student ${index + 1}</h3>
+            Name: ${s.name} <br>
+            Roll: ${s.roll} <br>
+            Department: ${s.department} <br>
+            Project: ${s.project} <br><br>
+        `;
+    });
+
+    document.getElementById("students").innerHTML = output;
+</script>
+
+</body>
+</html>
