@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dark / Light Mode</title>
+</head>
+<body>
+
+<h2>hello</h2>
+<button onclick="toggleMode()">Toggle Mode</button>
+
+<script>
+    function setCookie(name, value) {
+        document.cookie = name + "=" + value + ";path=/";
+    }
+
+    function getCookie(name) {
+        let cookies = document.cookie.split("; ");
+        for (let c of cookies) {
+            let [key, value] = c.split("=");
+            if (key === name) return value;
+        }
+        return null;
+    }
+
+    function toggleMode() {
+        let mode = document.body.style.backgroundColor === "black" ? "light" : "dark";
+        applyMode(mode);
+        setCookie("mode", mode);
+    }
+
+    function applyMode(mode) {
+        if (mode === "dark") {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        } else {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+    }
+
+    window.onload = function () {
+        let savedMode = getCookie("mode") || "light";
+        applyMode(savedMode);
+    };
+</script>
+
+</body>
+</html>

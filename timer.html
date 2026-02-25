@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+<h2 id="timer">05:00</h2>
+
+<script>
+    let time = 300; // 5 minutes in seconds
+
+    let countdown = setInterval(function () {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("timer").innerHTML = 
+            minutes + ":" + seconds;
+
+        time--;
+
+        if (time < 0) {
+            clearInterval(countdown);
+            alert("Time is up!");
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
