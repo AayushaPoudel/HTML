@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factorial using Recursion</title>
+</head>
+<body>
+
+<script>
+    function factorial(n) {
+        if (n === 0 || n === 1)
+            return 1;
+        else
+            return n * factorial(n - 1);
+    }
+
+    let num = parseInt(prompt("Enter a number:"));
+    document.write("Factorial of " + num + " is: " + factorial(num));
+</script>
+
+</body>
+</html>
