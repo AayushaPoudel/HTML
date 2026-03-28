@@ -1,0 +1,33 @@
+//Write a JavaScript program to ask for user to input Student Name, Roll Number, Department and Project Title using prompt(). 
+Store the information in JavaScript object. Display the details in the HTML document using string literals.//
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body> 
+
+<h2>Student Information</h2>
+
+<div id="studentInfo"></div>
+
+<script>
+    // Taking input
+    let student = {
+        name: prompt("Enter Student Name:"),
+        roll: prompt("Enter Roll Number:"),
+        department: prompt("Enter Department:"),
+        project: prompt("Enter Project Title:")
+    };
+
+    // Display using template literals
+    document.getElementById("studentInfo").innerHTML = `
+        <p><b>Name:</b> ${student.name}</p>
+        <p><b>Roll Number:</b> ${student.roll}</p>
+        <p><b>Department:</b> ${student.department}</p>
+        <p><b>Project Title:</b> ${student.project}</p>
+    `;
+</script>
+
+</body>
+</html>

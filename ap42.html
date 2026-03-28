@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table and Pattern</title>
+</head>
+<body>
+
+<!-- 
+Question 2:
+Print the table of 12 till 10.
+12 x 1 = 12 ....... 12 x 10 = 120
+Print the following pattern in HTML Document.
+
+*
+***
+*****
+-->
+
+<h2>Table of 12</h2>
+<div id="table"></div>
+
+<h2>Pattern</h2>
+<div id="pattern"></div>
+
+<script>
+    let tableResult = "";
+    for(let i = 1; i <= 10; i++){
+        tableResult += `12 x ${i} = ${12 * i} <br>`;
+    }
+    document.getElementById("table").innerHTML = tableResult;
+
+    let patternResult = "";
+    let stars = 1;
+
+    for(let i = 1; i <= 3; i++){
+        patternResult += "*".repeat(stars) + "<br>";
+        stars += 2;
+    }
+
+    document.getElementById("pattern").innerHTML = patternResult;
+</script>
+
+</body>
+</html>
