@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+    Full Name: <br>
+    <input type="text" id="name"><br><br>
+
+    Email Address: <br>
+    <input type="text" id="email"><br><br>
+
+    Password: <br>
+    <input type="password" id="password"><br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+    function validateForm() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        let namePattern = /^[A-Za-z ]{3,}$/;
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%*?&]).{8,}$/;
+
+        if (!namePattern.test(name)) {
+            alert("Name must be at least 3 characters and contain no numbers");
+            return false;
+        }
+
+        if (!emailPattern.test(email)) {
+            alert("Invalid email address");
+            return false;
+        }
+
+        if (!passwordPattern.test(password)) {
+            alert("Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character");
+            return false;
+        }
+
+        alert("Registration Successful!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
